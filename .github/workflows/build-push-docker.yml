@@ -23,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3.6.0
         with:
-          images: lemyst/satisfactory-server
+          images: ghcr.io/lemyst/satisfactory-server
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
