@@ -9,8 +9,6 @@ ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
 RUN apt update && apt upgrade -y && rm -rf /var/lib/apt/lists/*
 COPY --chown=${USER}:${USER} entry.sh ${HOMEDIR}/entry.sh
 USER ${USER}
-RUN mkdir ${STEAMAPPDIR}
-# VOLUME ${STEAMAPPDIR}
 WORKDIR ${HOMEDIR}
 ENTRYPOINT ["bash"]
 CMD ["entry.sh"]
