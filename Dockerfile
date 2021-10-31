@@ -6,8 +6,11 @@ ENV STEAMAPPID 1690800
 ENV STEAMAPP Satisfactory
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
 
-RUN apt update && apt upgrade -y && rm -rf /var/lib/apt/lists/*
+VOLUME ${STEAMAPPDIR}
+
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 COPY --chown=${USER}:${USER} entry.sh ${HOMEDIR}/entry.sh
+RUN mkdir ${STEAMAPPDIR} && chown ${USER}:${USER} ${STEAMAPPDIR}
 USER ${USER}
 WORKDIR ${HOMEDIR}
 ENTRYPOINT ["bash"]
