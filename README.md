@@ -16,7 +16,7 @@ Create the data directory:
 mkdir data
 ```
 
-
+then use docker-compose to start the image in detached mode:
 ```shell
 docker-compose up -d
 ```
